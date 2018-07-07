@@ -6,7 +6,7 @@ from string import digits, ascii_lowercase
 import datetime
 
 app=Flask(__name__)
-DATABASE='assignment2.db'
+DATABASE='ewallet.db'
 con = sqlite3.connect(DATABASE)
 con.execute('''CREATE TABLE IF NOT EXISTS wallets (id TEXT PRIMARY KEY,balance INTEGER NOT NULL,coin_symbol TEXT NOT NULL);''')
 con.execute('''CREATE TABLE IF NOT EXISTS transactions (from_wallet TEXT, to_wallet TEXT, amount INTEGER NOT NULL,time_stamp TEXT NOT NULL,txn_hash TEXT PRIMARY KEY,status TEXT NOT NULL, FOREIGN KEY(from_wallet) REFERENCES wallets(id),FOREIGN KEY(to_wallet) REFERENCES wallets(id));''')
